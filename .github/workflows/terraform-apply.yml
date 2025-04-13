@@ -20,5 +20,8 @@ jobs:
       uses: hashicorp/setup-terraform@v3
     - name: Terraform Apply
       run: |
+        echo "===== AWS ENV VARS ====="
+        env | grep AWS || echo "Nenhuma variável AWS encontrada, parabéns pelo desastre"
+        echo "========================"
         terraform init
         terraform apply -auto-approve
